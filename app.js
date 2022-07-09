@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const homepage = require('./routes/index');
+const dotenv = require('dotenv');
 // const { addToDo } = require('./routes/todo');
 
-
+dotenv.config();
 const app = express();
 
-mongoose.connect("mongodb+srv://afridarn:afridacantikbanget@cluster0.y2gna.mongodb.net/todo_app?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
